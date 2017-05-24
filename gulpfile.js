@@ -68,9 +68,16 @@ gulp.task('clean', function() {
 gulp.task('build', ['html', 'assets'])
 
 gulp.task('deploy', function(){
-  gulp.src(options.dist + '**/*')
-      .pipe(pages());
+  return gulp.src(options.dist + '**/*')
+     .pipe(pages());
 });
+
+// gulp.task('deploy', function() {
+//   return gulp.src('./dist/**/*')
+//     .pipe($.ghPages({
+//       remoteUrl: "YOUR_REPOGITRY_URL"
+//     }));
+// });
 
 gulp.task('default', ['clean'], function(){
   gulp.start('build');
