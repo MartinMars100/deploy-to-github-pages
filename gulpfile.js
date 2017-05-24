@@ -68,8 +68,8 @@ gulp.task('clean', function() {
 gulp.task('build', ['html', 'assets'])
 
 gulp.task('deploy', function(){
-  gulp.src(options.dist + '**/*')
-      .pipe(pages());
+  return gulp.src(options.dist + '**/*')
+     .pipe(pages());
 });
 
 gulp.task('default', ['clean'], function(){
